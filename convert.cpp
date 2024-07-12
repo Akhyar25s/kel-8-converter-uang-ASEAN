@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <conio.h>
+
 using namespace std;
 
 void tukar(int *a, int *b) {
@@ -22,7 +23,7 @@ void dMenu() {
     cout << "8. Kamboja" << "\n";
     cout << "9. Vietnam" << "\n";
     cout << "10. Laos" << "\n";
-    cout << "11. Timor Lesti" << "\n";
+    cout << "11. Timor Leste" << "\n";
     cout << "12. Exit" << "\n";
     cout << "Masukan angka : ";
 }
@@ -30,7 +31,10 @@ void dMenu() {
 void mPertama(string pesan) {
     system("cls");
     cout << "Anda memilih Mata Uang " << pesan <<"\n";
-    getch();
+    double nominal;
+    cout << "Anda memasukkan nominal: " << nominal << " " << pesan;
+    cin.ignore() //untuk mengabaikan karakter newline yang tertinggal
+    cin.get() //menunggu pengguna menekan enter
 }
 
 int main() {
