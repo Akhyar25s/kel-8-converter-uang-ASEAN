@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
+#include <limits>
 #include <conio.h>
-
 using namespace std;
 
 void tukar(int *a, int *b) {
@@ -33,8 +33,8 @@ void mPertama(string pesan) {
     cout << "Anda memilih Mata Uang " << pesan <<"\n";
     double nominal;
     cout << "Anda memasukkan nominal: " << nominal << " " << pesan;
-    cin.ignore() //untuk mengabaikan karakter newline yang tertinggal
-    cin.get() //menunggu pengguna menekan enter
+    cin.ignore(); //untuk mengabaikan karakter newline yang tertinggal
+    cin.get(); //menunggu pengguna menekan enter
 }
 
 int main() {
