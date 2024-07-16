@@ -4,6 +4,28 @@
 #include <conio.h>
 using namespace std;
 
+struct Pengguna {
+    string nama;
+    string nim;
+    string nik;
+};
+
+void inputPengguna(Pengguna &pengguna) {
+    cout << "Masukkan Nama: ";
+    cin >> pengguna.nama;
+    cout << "Masukkan NIM: ";
+    cin >> pengguna.nim;
+    cout << "Masukkan NIK: ";
+    cin >> pengguna.nik;
+}
+
+void tampilkanPengguna(const Pengguna &pengguna) {
+    cout << "\nDataPengguna:" << "\n";
+    cout << "Nama: " << pengguna.nama << endl;
+    cout << "NIM: " << pengguna.nim << endl;
+    cout << "NIK: " << pengguna.nik << endl;
+}
+
 void tukar(int *a, int *b) {
     int t = *a;
     *a = *b;
@@ -38,6 +60,11 @@ void mPertama(string pesan) {
 }
 
 int main() {
+    Pengguna pengguna;
+
+    inputPengguna(pengguna);
+    tampilkanPengguna(pengguna);
+
     int pl;
     do {
         dMenu();
