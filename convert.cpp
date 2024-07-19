@@ -94,9 +94,12 @@ void mPertama(string pesan, const Pengguna &pengguna) {
     double nominal;
     cout << "Anda memasukkan nominal: ";
     cin >> nominal;
-    cin.ignore(); //untuk mengabaikan karakter newline yang tertinggal
-    cin.get(); //menunggu pengguna menekan enter
-    
+    while (cin.fail()) {
+        cin.clear(); // Menghapus kesalahan
+        cin.ignore(); // Mengabaikan input yang salah
+        cout << "Input salah! Masukkan nominal yang benar: ";
+        cin >> nominal;
+    }
     double converted = tukarUang(nominal, pesan);
     cout << "Nominal dalam Rupiah: " << fixed << setprecision(0) << converted << " IDR\n";
     cin.ignore(); //untuk mengabaikan karakter newline yang tertinggal
@@ -113,6 +116,12 @@ int main() {
     do {
         dMenu();
         cin >> pl;
+        while (cin.fail() || pl < 1 || pl > 12) {
+            cin.clear(); // Menghapus kesalahan
+            cin.ignore(); // Mengabaikan input yang salah
+            cout << "Input salah! Masukkan angka antara 1 dan 12: ";
+            cin >> pl;
+        }
         switch (pl) {
             case 1:
                 mPertama("Rupiah", pengguna);
