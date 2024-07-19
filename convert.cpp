@@ -50,8 +50,13 @@ void dMenu() {
     cout << "Masukan angka : ";
 }
 
-void mPertama(string pesan) {
+void mPertama(string pesan, const Pengguna &pengguna) {
     system("cls");
+    cout << "Data Pengguna:\n";
+    cout << "Nama: " << pengguna.nama << "\n";
+    cout << "NIM: " << pengguna.nim << "\n";
+    cout << "NIK: " << pengguna.nik << "\n\n";
+
     cout << "Anda memilih Mata Uang " << pesan <<"\n";
     double nominal;
     cout << "Anda memasukkan nominal: " << nominal << " " << pesan;
@@ -71,37 +76,37 @@ int main() {
         cin >> pl;
         switch (pl) {
             case 1:
-                mPertama("Rupiah");
+                mPertama("Rupiah", pengguna);
                 break;
             case 2:
-                mPertama("Ringgit");
+                mPertama("Ringgit", pengguna);
                 break;
             case 3:
-                mPertama("Dollar Singapura");
+                mPertama("Dollar Singapura", pengguna);
                 break;
             case 4:
-                mPertama("Baht");
+                mPertama("Baht", pengguna);
                 break;
             case 5:
-                mPertama("Dollar Brunei");
+                mPertama("Dollar Brunei", pengguna);
                 break;
             case 6:
-                mPertama("Peso");
+                mPertama("Peso", pengguna);
                 break;
             case 7:
-                mPertama("Kyat");
+                mPertama("Kyat", pengguna);
                 break;
             case 8:
-                mPertama("Riel");
+                mPertama("Riel", pengguna);
                 break;
             case 9:
-                mPertama("Dong");
+                mPertama("Dong", pengguna);
                 break;
             case 10:
-                mPertama("Kip");
+                mPertama("Kip", pengguna);
                 break;
             case 11:
-                mPertama("Dollar AS");
+                mPertama("Dollar AS", pengguna);
                 break;
             case 12:
                 break;
