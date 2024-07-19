@@ -2,6 +2,7 @@
 #include <string>
 #include <limits>
 #include <conio.h>
+#include <iomanip>
 using namespace std;
 
 struct Pengguna {
@@ -50,6 +51,38 @@ void dMenu() {
     cout << "Masukan angka : ";
 }
 
+double tukarUang(double nominal, string tukar) {
+    // Menentukan nilai tukar untuk masing-masing mata uang terhadap Rupiah (IDR)
+    const double duit[] = {1.0, 3485.0, 11150.0, 445.0, 11250.0, 268.0, 14.5, 3.75, 0.61, 0.71, 15420.0};
+    double jumlahConvert = 0.0;
+
+    if (tukar == "Rupiah") {
+        jumlahConvert = nominal;
+    } else if (tukar == "Ringgit") {
+        jumlahConvert = nominal * duit[1];
+    } else if (tukar == "Dollar Singapura") {
+        jumlahConvert = nominal * duit[2];
+    } else if (tukar == "Baht") {
+        jumlahConvert = nominal * duit[3];
+    } else if (tukar == "Dollar Brunei") {
+        jumlahConvert = nominal * duit[4];
+    } else if (tukar == "Peso") {
+        jumlahConvert = nominal * duit[5];
+    } else if (tukar == "Kyat") {
+        jumlahConvert = nominal * duit[6];
+    } else if (tukar == "Riel") {
+        jumlahConvert = nominal * duit[7];
+    } else if (tukar == "Dong") {
+        jumlahConvert = nominal * duit[8];
+    } else if (tukar == "Kip") {
+        jumlahConvert = nominal * duit[9];
+    } else if (tukar == "Dollar AS") {
+        jumlahConvert = nominal * duit[10];
+    }
+
+    return jumlahConvert;
+}
+
 void mPertama(string pesan, const Pengguna &pengguna) {
     system("cls");
     cout << "Data Pengguna:\n";
@@ -59,7 +92,13 @@ void mPertama(string pesan, const Pengguna &pengguna) {
 
     cout << "Anda memilih Mata Uang " << pesan <<"\n";
     double nominal;
-    cout << "Anda memasukkan nominal: " << nominal << " " << pesan;
+    cout << "Anda memasukkan nominal: ";
+    cin >> nominal;
+    cin.ignore(); //untuk mengabaikan karakter newline yang tertinggal
+    cin.get(); //menunggu pengguna menekan enter
+    
+    double converted = tukarUang(nominal, pesan);
+    cout << "Nominal dalam Rupiah: " << fixed << setprecision(0) << converted << " IDR\n";
     cin.ignore(); //untuk mengabaikan karakter newline yang tertinggal
     cin.get(); //menunggu pengguna menekan enter
 }
