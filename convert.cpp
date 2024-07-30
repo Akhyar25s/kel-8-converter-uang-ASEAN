@@ -107,10 +107,20 @@ void mPertama(string pesan, const Pengguna &pengguna) {
 }
 
 int main() {
-    Pengguna pengguna;
+    const int JUMLAH_PENGGUNA = 1;
+    Pengguna pengguna[JUMLAH_PENGGUNA];
 
-    inputPengguna(pengguna);
-    tampilkanPengguna(pengguna);
+    for(int i = 0; i < JUMLAH_PENGGUNA; ++i) {
+        cout << "Masukkan data pengguna ke-" << i+1 << ":\n";
+        inputPengguna(pengguna[i]);
+        cout << endl;
+    }
+
+   for(int i = 0; i < JUMLAH_PENGGUNA; ++i) {
+        cout << "Data pengguna ke-" << i+1 << ":\n";
+        tampilkanPengguna(pengguna[i]);
+        cout << endl;
+    }
 
     int pl;
     do {
@@ -124,37 +134,37 @@ int main() {
         }
         switch (pl) {
             case 1:
-                mPertama("Rupiah", pengguna);
+                mPertama("Rupiah", pengguna[0]);
                 break;
             case 2:
-                mPertama("Ringgit", pengguna);
+                mPertama("Ringgit", pengguna[0]);
                 break;
             case 3:
-                mPertama("Dollar Singapura", pengguna);
+                mPertama("Dollar Singapura", pengguna[0]);
                 break;
             case 4:
-                mPertama("Baht", pengguna);
+                mPertama("Baht", pengguna[0]);
                 break;
             case 5:
-                mPertama("Dollar Brunei", pengguna);
+                mPertama("Dollar Brunei", pengguna[0]);
                 break;
             case 6:
-                mPertama("Peso", pengguna);
+                mPertama("Peso", pengguna[0]);
                 break;
             case 7:
-                mPertama("Kyat", pengguna);
+                mPertama("Kyat", pengguna[0]);
                 break;
             case 8:
-                mPertama("Riel", pengguna);
+                mPertama("Riel", pengguna[0]);
                 break;
             case 9:
-                mPertama("Dong", pengguna);
+                mPertama("Dong", pengguna[0]);
                 break;
             case 10:
-                mPertama("Kip", pengguna);
+                mPertama("Kip", pengguna[0]);
                 break;
             case 11:
-                mPertama("Dollar AS", pengguna);
+                mPertama("Dollar AS", pengguna[0]);
                 break;
             case 12:
                 break;
